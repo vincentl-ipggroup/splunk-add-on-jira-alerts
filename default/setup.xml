@@ -4,18 +4,20 @@
     </block>
 
     <block title="Server" endpoint="admin/jira_alerts_install" entity="jira">
+        <text>Ensure to set the right URL, and define a valid User/Password with permission to use the Rest API /rest/api/2/issue</text>
         <input field="jira_url">
             <label>Server Base URL</label>
             <type>text</type>
         </input>
         <input field="jira_username">
-            <label>JIRA Username</label>
+            <label>JIRA API Username</label>
             <type>text</type>
         </input>
         <input field="jira_password">
-            <label>JIRA Password</label>
+            <label>JIRA API Password</label>
             <type>password</type>
         </input>
+        <text>Password will be encrypted in Splunk configuration</text>
     </block>
     <block title="Import Projects and Issue Types" endpoint="admin/jira_alerts_install" entity="jira">
         <input field="import">
@@ -31,6 +33,14 @@
         </input>
         <input field="default_issue_type">
             <label>Default Issue Type</label>
+            <type>text</type>
+        </input>
+        <input field="default_component">
+            <label>Default Component</label>
+            <type>text</type>
+        </input>
+        <input field="default_labels">
+            <label>Default Labels</label>
             <type>text</type>
         </input>
         <input field="default_priority">

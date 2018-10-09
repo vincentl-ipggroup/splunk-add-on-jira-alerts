@@ -12,7 +12,21 @@ def send_message(payload):
     url = config.get('jira_url')
     jira_url = url + ISSUE_REST_PATH
     username = config.get('jira_username')
-    password = get_jira_password(payload.get('server_uri'), payload.get('session_key'))
+    password = config.get('jira_password')
+    if not password:
+        password = get_jira_password(payload.get('server_uri'), payload.get('session_key'))
+    if config.get('component'):
+        component = [ { "name": config.get('component') } ]
+    else:
+        component = []
+    if config.get('labels'):
+        labels = config.get('labels').split(',')
+    else:
+        labels = []
+    if config.get('assignee'):
+        assignee = config.get('assignee')
+    else:
+        assignee = config.get('assignee_list')
 
     # create outbound JSON message body
     body = json.dumps({
@@ -20,10 +34,21 @@ def send_message(payload):
             "project": {
                 "key" : config.get('project_key')
             },
-            "summary": config.get('summary'),
-            "description": config.get('description'),
             "issuetype": {
                 "name": config.get('issue_type')
+            },
+            "summary": config.get('summary'),
+            "description": config.get('description'),
+            "components" : component,
+            "labels": labels,
+            "priority": {
+                "name": config.get('priority')
+            },
+            "timetracking": {
+                "originalEstimate": config.get('timetracking_original')
+            },
+            "assignee": {
+                "name": assignee
             }
         }
     })

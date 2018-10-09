@@ -22,7 +22,10 @@ local.meta
 *.spl
 
 # Unknown
-build
+build/*
 .build
 *.orig.pre41
 
+### Local Splunk files
+local/*
+metadata/local.meta

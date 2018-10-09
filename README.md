@@ -23,8 +23,13 @@ find the alert for which you want to add JIRA tickets. Click `Edit`, and select
 for the artifact you wish to create in JIRA when the associated search returns
 results, and Splunk will start logging bugs for you.
 
+NB: To Get the list of Jira Users, the user defined during the setup must have valid permission to access them.
+
 ## Case Study
 For a case study showcasing the application of this custom alert action, see the [Splunk Reference App - PAS](https://github.com/splunk/splunk-ref-pas-code) and the accompanying [Splunk Developer Guidance](http://dev.splunk.com/goto/devguide)
+
+## Splunk alert action tokens
+Please refer to the Splunk Documentation [Developing Views and Apps for Splunk Web](http://docs.splunk.com/Documentation/Splunk/latest/AdvancedDev/ModAlertsLog) to get the list of Token available to customize your Summary and Description fileds..
 
 ## License
 The Splunk Add-on for Atlassian JIRA Alerts is licensed under the Apache License 2.0. Details can be found in the [LICENSE page](http://www.apache.org/licenses/LICENSE-2.0).

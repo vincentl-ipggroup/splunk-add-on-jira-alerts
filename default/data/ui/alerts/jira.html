@@ -1,5 +1,29 @@
 <form class="form-horizontal form-complex">
     <div class="control-group">
+        <label class="control-label" for="jira_integration_url">Integration URL</label>
+
+        <div class="controls">
+            <input type="text" name="action.jira.param.jira_url" id="jira_integration_url" />
+            <span class="help-block">Override the global Jira Integration URL (refer to the application setup)</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="jira_username">JIRA Username</label>
+
+        <div class="controls">
+            <input type="text" name="action.jira.param.jira_username" id="jira_username" />
+            <span class="help-block">Override the global Jira Username (refer to the application setup)</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="jira_password">JIRA Password</label>
+
+        <div class="controls">
+            <input type="password" name="action.jira.param.jira_password" id="jira_password" />
+            <span class="help-block">Override the global Jira Password (refer to the application setup)</span>
+        </div>
+    </div>
+    <div class="control-group">
         <label class="control-label" for="project_key">Project Key</label>
 
         <div class="controls">
@@ -11,7 +35,13 @@
         <label class="control-label" for="issue_type">Issue Type</label>
 
         <div class="controls">
-            <input type="text" name="action.jira.param.issue_type" id="issue_type" />
+            <select id="issue_type" name="action.jira.param.issue_type">
+                <option value="Bug">Bug</option>
+                <option value="Incident">Incident</option>
+                <option value="Support">Support</option>
+                <option value="Task">Task</option>
+                <option value="Access Control">Access Control</option>
+            </select>
             <span class="help-block">Enter an Issue type.</span>
         </div>
     </div>
@@ -33,6 +63,60 @@
                 <a href="{{SPLUNKWEB_URL_PREFIX}}/help?location=learnmore.alert.action.tokens" target="_blank"
                    title="Splunk help">Learn More <i class="icon-external"></i></a>
             </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="jira_component">Component</label>
+
+        <div class="controls">
+            <input type="text" name="action.jira.param.component" id="jira_component" />
+            <span class="help-block">Override/Set a Component for the issue (optional)</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="jira_labels">Labels</label>
+
+        <div class="controls">
+            <input type="text" name="action.jira.param.labels" id="jira_labels" />
+            <span class="help-block">Override/Set labels for the issue (optional)</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="jira_priotiry">Priority</label>
+
+        <div class="controls">
+            <select id="jira_priotiry" name="action.jira.param.priority">
+                <option value="Critical">Critical</option>
+                <option value="Major">Major</option>
+                <option value="Minor (Normal)">Minor (Normal)</option>
+                <option value="Trivial (Rainy Day)">Trivial (Rainy Day)</option>
+            </select>
+            <span class="help-block">Override/Set priority for the issue (Optional)</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="jira_timetracking">Original Estimate</label>
+
+        <div class="controls">
+            <select id="jira_timetracking" name="action.jira.param.timetracking_original">
+                <option value=""></option>
+                <option value="10m">10m</option>
+                <option value="20m">20m</option>
+                <option value="30m">30m</option>
+                <option value="60m">60m</option>
+                <option value="90m">90m</option>
+                <option value="120m">180m</option>
+                <option value="180m">180m</option>
+            </select>
+            <span class="help-block">Define an estimate time for the issue (optional)</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="jira_assignee">Assignee</label>
+
+        <div class="controls">
+            <input type="text" name="action.jira.param.assignee" id="jira_assignee" />
+            <span class="help-block"></span>
         </div>
     </div>
 </form>

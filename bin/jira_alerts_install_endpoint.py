@@ -17,7 +17,7 @@ class JiraAlertsInstallHandler(admin.MConfigHandler):
     def handleList(self, confInfo):
         jira_settings = get_jira_settings(splunk.getLocalServerInfo(), self.getSessionKey())
         item = confInfo['jira']
-        item['jira_url'] = jira_settings.get('jira_url', 'http://your.server/')
+        item['jira_url'] = jira_settings.get('jira_url', 'http://myjira.example.com:8080/')
         item['jira_username'] = jira_settings.get('jira_username')
         item['jira_password'] = PASSWORD_PLACEHOLDER
         for k in DEFAULT_SETTINGS:
